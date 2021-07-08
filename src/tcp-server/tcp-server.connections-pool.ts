@@ -43,6 +43,7 @@ export class TcpServerConnectionsPool {
     connection.on('close', () => {
       this.logger.verbose(`close connection ${connection?.ID}`);
       delete this.connectionsArray[connection?.ID];
+      this.logger.verbose(Object.keys(this.connectionsArray).length);
     });
 
     connection.on('error', () => {
